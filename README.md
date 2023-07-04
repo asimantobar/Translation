@@ -1,1 +1,1 @@
-# Translation
+# Document Translation Excluding Variables
