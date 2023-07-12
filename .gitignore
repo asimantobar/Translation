@@ -1,0 +1,11 @@
+!.gitignore
+*.zip
+/dist
+/build
+/.idea
+*.env
+**difference_units_*
+/__pycache__
+*.pyc
+*.lock
+*.mo

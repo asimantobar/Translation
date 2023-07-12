@@ -1,0 +1,6 @@
+Gooey>=1.0.8.1
+mtranslate>=1.8
+pandas>=2.0.3
+python_docx>=0.8.11
+python_Levenshtein>=0.21.1
+python_Levenshtein>=0.21.1
