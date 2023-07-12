@@ -1,13 +1,5 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 # -*- coding: utf-8 -*-
 
-=======
->>>>>>> 284fde0 (separar def & GUI)
-=======
-# -*- coding: utf-8 -*-
-
->>>>>>> 5b14780 (fix bugs in pot document translations)
 import Levenshtein
 from docx import Document
 import os
@@ -40,16 +32,7 @@ def content_docx(docx_file):
             for cell in row.cells:
                 content.append(extract_text(cell))
     return content
-<<<<<<< HEAD
-<<<<<<< HEAD
     
-=======
-
-
->>>>>>> 284fde0 (separar def & GUI)
-=======
-    
->>>>>>> 5b14780 (fix bugs in pot document translations)
 def merge_content(folder_path, output_file): 
     df = pd.DataFrame(columns=['Filename', 'Content'])
     cont = 0 
@@ -179,25 +162,13 @@ def translate_files(args):
     var2 = extract_var2(df3, usados)
     df4 = sustituir_cod_asociado(df3,var2)
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     matches = [r'^\d+\s*/?\s*\d+$', r'^\d+\s*º$|\d+\s*%$|\d+°$', r'^\s*\d+\s*$', r'^(?:[<>]=?)?\d+º=\d+$']
     contain = [r'\b\d+\s*%\s*–\s*\d+\b', r'^\s*[-\[\]]\s*$']
-=======
-    matches=[r'^\d+\s*/?\s*\d+$',r'^\d+\s*º$|\d+\s*%$|\d+°$',r'^\s*\d+\s*$',r'^(?:[<>]=?)?\d+º=\d+$']
-    contain=[r'\b\d+\s*%\s*–\s*\d+\b', r'^\s*(-|\[\])\s*$']
->>>>>>> 284fde0 (separar def & GUI)
-=======
-    matches = [r'^\d+\s*/?\s*\d+$', r'^\d+\s*º$|\d+\s*%$|\d+°$', r'^\s*\d+\s*$', r'^(?:[<>]=?)?\d+º=\d+$']
-    contain = [r'\b\d+\s*%\s*–\s*\d+\b', r'^\s*[-\[\]]\s*$']
->>>>>>> a8fdd56 (updates:)
     
     df4 = df4[~df4['Content'].str.isnumeric()] 
     
     for m in range(len(matches)):
         df4 = df4[~df4['Content'].str.match(matches[m])]  
-<<<<<<< HEAD
-<<<<<<< HEAD
     
     for c in range(len(contain)):
         df4 = df4[~df4['Content'].str.contains(contain[c], regex=False, na=False)]   
@@ -205,21 +176,6 @@ def translate_files(args):
     df4 = df4.reset_index(drop=True)
 
 
-=======
-        
-=======
-    
->>>>>>> a8fdd56 (updates:)
-    for c in range(len(contain)):
-        df4 = df4[~df4['Content'].str.contains(contain[c], regex=False, na=False)]   
-    
-    df4 = df4.reset_index(drop=True)
-
-<<<<<<< HEAD
->>>>>>> 284fde0 (separar def & GUI)
-=======
-
->>>>>>> a8fdd56 (updates:)
     target_lang = {}
     
     if args.ES:
