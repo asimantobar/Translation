@@ -89,7 +89,6 @@ def sustituir_cod_asociado(df, codes_df):
 
 def extract_var2(df, used_codes):
     var2 = pd.DataFrame(columns=['word', 'code'])
-
     pattern = r'\b(\d{4})_(\w+)\b'
 
     for text in df['Content']:
@@ -97,14 +96,14 @@ def extract_var2(df, used_codes):
         for match in matches:
             code = generar_codigo(used_codes)
             word = match[0] + '_' + match[1]
-            var2 = var2.append({'word': word, 'code': code}, ignore_index=True)
+            var2 = pd.concat([var2, pd.DataFrame({'word': [word], 'code': [code]})], ignore_index=True)
             used_codes.add(code)
 
         words = re.findall(r'\b(\d{4})(\S+)\b', text)
         for word in words:
             code = generar_codigo(used_codes)
             word = word[0] + word[1]
-            var2 = var2.append({'word': word, 'code': code}, ignore_index=True)
+            var2 = pd.concat([var2, pd.DataFrame({'word': [word], 'code': [code]})], ignore_index=True)
             used_codes.add(code)
 
     return var2
@@ -213,7 +212,7 @@ def translate_files(args):
         print(f"The translation to {language} is currently being realized") 
         for content in df4['Content']:
             try:
-                translation = translate(content,  language,'en')  
+                translation = translate(content,  language,'auto')  
                 translations.append(translation)
             except Exception as e:
                 print(f"Error occurred during translation: {str(e)}")

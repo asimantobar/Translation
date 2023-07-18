@@ -24,7 +24,7 @@ def config_file():
 
 
 idioma = config_file()
-version ='0.1.0'
+version ='1.0.0'
 date='04/07/2023'
 
 i18n.load("C:/Users/usuario/Documents/automatic_translation/languages", idioma, "utf-8")
@@ -51,14 +51,14 @@ i18n.load("C:/Users/usuario/Documents/automatic_translation/languages", idioma, 
             }, {
                 'type': 'Link',
                 'menuTitle': _('Visit Site'),
-                'url': 'https://github.com/asimantobar/Variable-Excluding-Translation'
+                'url': 'http://devserver:3000/asiman/automatic_translation.git'
             }]
         },{
         'name': _('Help'),
         'items': [{
             'type': 'Link',
             'menuTitle': _('Documentation'),
-            'url': 'https://github.com/asimantobar/Variable-Excluding-Translation'
+            'url': 'http://devserver:3000/asiman/automatic_translation.git'
         }]
     }],
     timing_options = {'show_time_remaining':True,
